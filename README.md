@@ -66,7 +66,7 @@ $ flutter pub get
 Now in your `Dart` code, you can use:
 
 ```dart
-import 'package:transform_text/transform_text_animated.dart';
+import 'package:transform_text/transform_text.dart';
 ```
 
 ## Usage
@@ -75,10 +75,60 @@ import 'package:transform_text/transform_text_animated.dart';
 Include it in your `build` method like:
 
 ```dart
-TransformText(
-  currentTimer, // when current time change value animation will update.
-  style: TextStyle(fontSize: 20),
-)
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:transform_text/transform_text.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Timer? timer;
+  String currentTime = "";
+  DateFormat f = DateFormat("yyyy-MM-dd h:mm:ss a");
+
+  @override
+  void initState() {
+    timer = Timer.periodic(const Duration(), (timer) {
+      setState(() {
+        currentTime = f.format(DateTime.now());
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    if (timer != null) {
+      timer!.cancel();
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("TransformText"),
+          backgroundColor: Colors.blue,
+        ),
+        body: TransformText(currentTime)// When current time update animation will update too.
+      ),
+    );
+  }
+}
+
 ```
 
 ### Configurable properties, including:

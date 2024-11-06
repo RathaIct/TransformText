@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:transform_text/transform_text_animated.dart';
+import 'package:transform_text/transform_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Timer? timer;
-  String currentTimer = "";
+  String currentTime = "";
   DateFormat f = DateFormat("yyyy-MM-dd h:mm:ss a");
   int counter = 0;
   bool isIncrement = true;
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     timer = Timer.periodic(const Duration(), (timer) {
       setState(() {
-        currentTimer = f.format(DateTime.now());
+        currentTime = f.format(DateTime.now());
       });
     });
     super.initState();
@@ -76,47 +76,47 @@ class _MyAppState extends State<MyApp> {
               children: [
                 _buildRow(
                   "TransformTextType.scrollUp",
-                  child: TransformText(currentTimer),
+                  child: TransformText(currentTime),
                 ),
                 _buildRow(
                   "TransformTextType.scaleIn",
                   child: TransformText(
-                    currentTimer,
+                    currentTime,
                     type: TransformTextType.scaleIn,
                   ),
                 ),
                 _buildRow(
                   "TransformTextType.scaleOut",
                   child: TransformText(
-                    currentTimer,
+                    currentTime,
                     type: TransformTextType.scaleOut,
                   ),
                 ),
                 _buildRow(
                   "TransformTextType.scrollDown",
                   child: TransformText(
-                    currentTimer,
+                    currentTime,
                     type: TransformTextType.scrollDown,
                   ),
                 ),
                 _buildRow(
                   "TransformTextType.fade",
                   child: TransformText(
-                    currentTimer,
+                    currentTime,
                     type: TransformTextType.fade,
                   ),
                 ),
                 _buildRow(
                   "TransformTextType.fallDown",
                   child: TransformText(
-                    currentTimer,
+                    currentTime,
                     type: TransformTextType.fallDown,
                   ),
                 ),
                 _buildRow(
                   "TransformTextType.up",
                   child: TransformText(
-                    currentTimer,
+                    currentTime,
                     type: TransformTextType.up,
                   ),
                 ),

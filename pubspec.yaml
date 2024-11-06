@@ -1,6 +1,6 @@
 name: transform_text
 description: "Helps you to animate transform text when text change."
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/RathaIct/TransformText
 repository: https://github.com/RathaIct/TransformText
 issue_tracker: https://github.com/RathaIct/TransformText/issues
