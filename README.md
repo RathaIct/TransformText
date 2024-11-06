@@ -1,9 +1,6 @@
 # TransformText
 
-[TransformText](https://www.pub.dev/packages/animate_text) ជួយលោកអ្នក ក្នុងការធ្វើតួរអក្សរឲ្យមានចលនាតាមការចង់បាន
-<br />
-
-[TransformText](https://www.pub.dev/packages/animate_text) helps you to animate text easy with scale, opacity, transform, blur.
+[TransformText](https://www.pub.dev/packages/transform_text) helps you to animate transform text when text change.
 
 <hr />
 <p align="center">
@@ -14,8 +11,8 @@
     <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"  
       alt="Platform" />  
   </a> 
-   <a href="https://pub.dev/packages/animate_text">  
-    <img src="https://img.shields.io/pub/v/animate_text.svg"  
+   <a href="https://pub.dev/packages/transform_text">  
+    <img src="https://img.shields.io/pub/v/transform_text.svg"  
       alt="Pub Package" />  
   </a>
    <a href="https://opensource.org/licenses/MIT">  
@@ -45,7 +42,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  animate_text: ^1.0.0
+  transform_text: ^1.0.0
 ```
 
 ### 2. Install it
@@ -69,7 +66,7 @@ $ flutter pub get
 Now in your `Dart` code, you can use:
 
 ```dart
-import 'package:animate_text/animate_text.dart';
+import 'package:transform_text/transform_text_animated.dart';
 ```
 
 ## Usage
@@ -79,42 +76,24 @@ Include it in your `build` method like:
 
 ```dart
 TransformText(
-  "Hello World!",
+  currentTimer, // when current time change value animation will update.
   style: TextStyle(fontSize: 20),
-  type: TransformTextType.bottomToTop,
 )
 ```
 
 ### Configurable properties, including:
 
 - `style` – custom text style what you want use TextStyle.
-- `type` – default `TransformTextType.bottomToTop` other options:
-  - `TransformTextType.none` - no animation transform
-  - `TransformTextType.bottomToTop` - animation transform text from bottom to top
-  - `TransformTextType.topToBottom` - animation transform text from top to bottom
-  - `TransformTextType.leftToRight` - animation transform text from left to right
-  - `TransformTextType.bottomLeftToTopRight` - animation transform text from bottom left to top right
-  - `TransformTextType.bottomRightToTopLeft` - animation transform text from bottom right to top left
-  - `TransformTextType.topLeftToBottomRight` - animation transform text from top left to bottom right
-  - `TransformTextType.topRightToBottomLeft` - animation transform text from top right to bottom left
-- `withOpacity`- default `false` joint animation opacity if set `true`
-- `withBlur`- default `false` joint animation blur if set `true`
-- `withRotate`- default `false` joint animation rotate if set `true`
-- `withScale`- default `false` joint animation scale if set `true`
-- `isScaleOut`- default `false` this option work with `withScale` option if it set to `true`
-- `seconds`- default `5` duration run animation
-- `isRepeat`- default `true` repeat animation if set `false` it will run only first time.
+- `type` – default `TransformTextType.scrollUp` other options:
+  - `TransformTextType.scrollDown` - animation transform scroll down
+  - `TransformTextType.fallDown` - animation transform fall down
+  - `TransformTextType.up` - animation transform up
+  - `TransformTextType.fade` - animation transform fade
+  - `TransformTextType.scaleOut` - animation transform scale out
+  - `TransformTextType.scaleIn` - animation transform scale in
+  - `TransformTextType.none` - none
 - `curve`- The curve to use in the forward direction.
-- `speed`- default `TransformTextSpeed.medium` other options:
-  - `TransformTextSpeed.verySlow` - speed animation run text each character speed very slow
-  - `TransformTextSpeed.slow` - speed animation run text each character speed slow
-  - `TransformTextSpeed.medium` - speed animation run text each character speed medium
-  - `TransformTextSpeed.fast` - speed animation run text each character speed fast
-  - `TransformTextSpeed.veryFast` - speed animation run text each character speed very fast
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/RathaIct/TransformText/main/animated_text.gif"/>
-</p>
 <br />
 
 ### Noted
